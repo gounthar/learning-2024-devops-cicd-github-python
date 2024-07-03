@@ -62,4 +62,3 @@ def add(*args):
         if isinstance(arg, (int, float)):
             total += arg
     return total
-`
