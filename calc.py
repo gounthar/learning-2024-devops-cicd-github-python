@@ -45,3 +45,21 @@ def add2(arg1, arg2):
         arg1conv = str(arg1conv)
         arg2conv = str(arg2conv)
     return arg1conv + arg2conv
+
+def add(*args):
+    """
+    Ajoute un nombre illimité d'arguments numériques.
+    Si un argument est une chaîne de caractères, elle est ignorée.
+
+    Args:
+        *args: Arguments numériques à additionner.
+
+    Returns:
+        float: La somme des arguments numériques.
+    """
+    total = 0
+    for arg in args:
+        if isinstance(arg, (int, float)):
+            total += arg
+    return total
+`
