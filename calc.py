@@ -24,6 +24,7 @@ def conv(value):
         except ValueError:
             return str(value)
 
+# calc.py
 def add2(*args):
     """
     Additionne plusieurs valeurs ensemble. Si une valeur est une chaîne de caractères,
@@ -33,8 +34,10 @@ def add2(*args):
         *args: Un nombre variable d'arguments qui peuvent être soit des entiers, soit des chaînes de caractères.
 
     Returns:
-        La somme des valeurs si ce sont toutes des entiers, ou une chaîne de caractères concaténée si un argument est une chaîne de caractères.
+        La somme des valeurs si ce sont toutes des entiers ou des flottants, ou une chaîne de caractères concaténée si un argument est une chaîne de caractères.
     """
-    if any(isinstance(arg, str) for arg in args):
+    try:
+        return sum(float(arg) for arg in args)
+    except ValueError:
         return ''.join(map(str, args))
-    return sum(args)
+
