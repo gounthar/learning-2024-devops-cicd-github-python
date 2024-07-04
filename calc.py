@@ -1,3 +1,11 @@
+'''
+The 'calc' library contains the 'add2' function that takes 2 values and adds
+them together. If either value is a string (or both of them are) 'add2' ensures
+they are both strings, thereby resulting in a concatenated result.
+NOTE: If a value submitted to the 'add2' function is a float, it must be done so
+in quotes (i.e. as a string).
+'''
+
 def conv(value):
     '''
     Si 'value' n'est pas un entier, le convertir en float et, en cas d'échec, en chaîne de caractères.
@@ -11,10 +19,10 @@ def conv(value):
     try:
         return int(value)
     except ValueError:
-     try:
+    try:
         return float(value)
-     except ValueError:
-         return str(value)
+    except ValueError:
+        return str(value)
 
 def add2(*args):
     '''
@@ -42,12 +50,12 @@ def add2(*args):
         converted_args.append(converted)
     
     # Si un argument est une chaîne de caractères, les convertir tous en chaînes
-        if has_string:
-            converted_args = [str(arg) for arg in converted_args]
+    if has_string:
+        converted_args = [str(arg) for arg in converted_args]
 
     # Si aucun argument n'est fourni, renvoyer une chaîne vide
-        if not converted_args:
-            return ''
+    if not converted_args:
+        return ''
 
     # Calculer le résultat en additionnant ou en concaténant les arguments
     result = converted_args[0]
