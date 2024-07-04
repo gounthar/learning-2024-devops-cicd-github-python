@@ -19,9 +19,9 @@ def conv(value):
     try:
         return int(value)
     except ValueError:
-    try:
-        return float(value)
-    except ValueError:
+     try:
+         return float(value)
+     except ValueError:
         return str(value)
 
 def add2(*args):
