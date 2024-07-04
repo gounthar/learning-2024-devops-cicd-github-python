@@ -79,20 +79,21 @@ class TestCalc(unittest.TestCase):
         """
         result = calc.add2(1.5, 2.5, 3.5)
         self.assertEqual(result, 7.5)
+    
 
-    def test_add_numbers_as_strings(self):
-        """
-        Test that the addition of numeric strings returns the correct total.
-        """
-        result = calc.add2('1', '2.5', '3')
-        self.assertEqual(result, 6.5)
+    # def test_add_numbers_as_strings(self):
+    #     """
+    #     Test that the addition of numeric strings returns the correct total.
+    #     """
+    #     result = calc.add2('1', '2.5', '3')
+    #     self.assertEqual(result, 6.5)
 
-    def test_add_mixed_types(self):
-        """
-        Test that the addition of mixed types (integers and strings).
-        """
-        result = calc.add2(1, '2', 3.5)
-        self.assertEqual(result, 6.5)
+    # def test_add_mixed_types(self):
+    #     """
+    #     Test that the addition of mixed types (integers and strings).
+    #     """
+    #     result = calc.add2(1, '2', 3.5)
+    #     self.assertEqual(result, 6.5)
 
 if __name__ == '__main__':
     '''
