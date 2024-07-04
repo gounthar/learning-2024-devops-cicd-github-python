@@ -51,6 +51,24 @@ class TestCalc(unittest.TestCase):
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
 
+    def test_add_without_args(self):
+        """
+        Test that calling add without arguments returns 0.
+        """
+        self.assertEqual(calc.add(), 0)
+
+    def test_add_arg(self):
+        """
+        Test that calling add with a single argument returns the argument itself.
+        """
+        self.assertEqual(calc.add(5), 5)
+
+    def test_add_many_args(self):
+        self.assertEqual(calc.add(2, 3, 4), 9)
+
+    def test_add_string(self):
+        self.assertEqual(calc.add(2, 3, "test"), 5)
+
 if __name__ == '__main__':
     '''
     The entry point for running the tests from the command line. The unittest.main() function
