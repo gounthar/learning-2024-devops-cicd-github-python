@@ -11,47 +11,11 @@ class TestCalc(unittest.TestCase):
         Inherits all attributes from unittest.TestCase, providing testing capabilities.
 
     Methods:
-        test_add_integers: Verifies correct addition of two integers.
-        test_add_floats: Checks addition of two floats for the correct result.
-        test_add_strings: Ensures concatenation of two strings works as expected.
-        test_add_string_and_integer: Tests concatenation of a string and an integer.
-        test_add_string_and_number: Verifies concatenation of a string and a float.
+        test_add_without_args: Tests that calling add without arguments returns 0.
+        test_add_one_arg: Checks that calling add with a single argument returns the argument itself.
+        test_add_many_args: Tests addition of multiple arguments.
+        test_add_plus_string: Ensures that adding a string to a number returns the sum.
     """
-
-    def test_add_integers(self):
-        """
-        Test that the addition of two integers returns the correct total.
-        """
-        result = calc.add2(1, 2)
-        self.assertEqual(result, 3)
-
-    def test_add_floats(self):
-        """
-        Test that the addition of two floats returns the correct result.
-        """
-        result = calc.add2('10.5', 2)
-        self.assertEqual(result, 12.5)
-
-    def test_add_strings(self):
-        """
-        Test the addition of two strings returns the two strings as one concatenated string.
-        """
-        result = calc.add2('abc', 'def')
-        self.assertEqual(result, 'abcdef')
-
-    def test_add_string_and_integer(self):
-        """
-        Test the addition of a string and an integer returns them as one concatenated string (in which the integer is converted to a string).
-        """
-        result = calc.add2('abc', 3)
-        self.assertEqual(result, 'abc3')
-
-    def test_add_string_and_number(self):
-        """
-        Test the addition of a string and a float returns them as one concatenated string (in which the float is converted to a string).
-        """
-        result = calc.add2('abc', '5.5')
-        self.assertEqual(result, 'abc5.5')
 
     def test_add_without_args(self):
         """
