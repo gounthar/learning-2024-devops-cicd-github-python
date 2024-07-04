@@ -50,6 +50,44 @@ class TestCalc(unittest.TestCase):
         """
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
+    
+    def test_add_integers_multiple(self):
+        """
+        Test the addition of ints returns the sum.
+        """
+        result = calc.add2(1, 2, 3, 6)
+        self.assertEqual(result, 12)
+
+    def test_add_floats_multiple(self):
+        """
+        Test the addition of ints returns the sum.
+        """
+        result = calc.add2('12.5', 3, 6)
+        self.assertEqual(result, 21.5)
+
+    def test_add_strings_multiple(self):
+        """
+        Receiving strings, try to convert them into int, fails
+        so concat all the characters as one big string.
+        """
+        result = calc.add2('a', 'ah', 'mp')
+        self.assertEqual(result, 'aahmp')
+
+    def test_add_string_and_integer_modified(self):
+        """
+        Receiving strings, try to convert them into int, fails
+        so concat all the characters as one big string.
+        """
+        result = calc.add2('a', 2, 3, 6)
+        self.assertEqual(result, 'a236')
+
+    def test_add_string_and_number_modified(self):
+        """
+        Receiving strings, try to convert them into int, fails
+        so concat all the characters as one big string.
+        """
+        result = calc.add2('ah', '2', '3', '6')
+        self.assertEqual(result, 'ah236')
 
 if __name__ == '__main__':
     '''
