@@ -51,7 +51,7 @@ class TestCalc(unittest.TestCase):
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
 
-if __name__ == '__main__':
+    if __name__ == '__main__':
     '''
     The entry point for running the tests from the command line. The unittest.main() function
     uses a command-line interface and runs all the test methods whose names start with 'test'.
