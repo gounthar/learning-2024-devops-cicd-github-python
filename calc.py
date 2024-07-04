@@ -64,17 +64,24 @@ def addAll(args):
     # Create an empty list to store the converted arguments
     argsconv = []
 
+    string = False
     # Convert each argument in 'args' to its appropriate type
     for arg in args:
         argsconv.append(conv(arg))
+        if isinstance(conv(arg), str) == True:
+            string = True
 
     # Create an empty string to store the result
-    result = ""
+
     # If any of the arguments are strings, ensure all are strings
-    for arg in argsconv:
-        if (isinstance(arg, str) == False):
-            arg = str(arg)
-        result += arg
+    if string:
+        result = ""
+        for arg in argsconv:
+            result += str(arg)
+    else:
+        result = 0
+        for arg in argsconv:
+            result += arg
 
     # Return the result
     return result
