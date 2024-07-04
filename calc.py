@@ -36,17 +36,19 @@ def add2(*args):
     Returns:
     int, float, str: The result of the addition or concatenation.
     """
+    if not args:
+        return 0
+    
     # Convert all arguments to their appropriate types
     conv_args = [conv(arg) for arg in args]
 
     # If any argument is a string, convert all arguments to strings
     if any(isinstance(arg, str) for arg in conv_args):
         conv_args = [str(arg) for arg in conv_args]
-
-    # Initialize the result
-    result = conv_args[0] if conv_args else 0
+        return ''.join(conv_args)
 
     # Add all arguments together
+    result = conv_args[0]
     for arg in conv_args[1:]:
         result += arg
 
