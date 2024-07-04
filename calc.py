@@ -49,7 +49,7 @@ def add2(arg1, arg2):
     return arg1conv + arg2conv
 
 
-def addAll(args):
+def addAll(*args):
     '''
     The 'addAll' function itself. It takes multiples arguments, converts them to their appropriate types
     using the 'conv' function, and adds them together. If either argument is a string, it ensures
