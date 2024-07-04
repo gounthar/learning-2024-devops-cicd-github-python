@@ -1,7 +1,6 @@
 import unittest
 import calc
 
-
 class TestCalc(unittest.TestCase):
     """
     TestCalc class inherits from unittest.TestCase for creating unit tests for the calc library.
@@ -30,7 +29,6 @@ class TestCalc(unittest.TestCase):
         Test that calling add with a mix of numbers and a string returns the concatenated result.
         """
         self.assertEqual(calc.add2(2, 3, "test"), '23test')
-
 
 if __name__ == '__main__':
     """
