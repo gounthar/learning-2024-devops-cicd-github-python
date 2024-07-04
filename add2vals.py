@@ -22,7 +22,6 @@ if argnumbers == 2:
 if argnumbers != 2:
     '''
     If the number of arguments is not 2, 
-    .
     '''
     print("")
     print(f"You entered {argnumbers} value/s.")
