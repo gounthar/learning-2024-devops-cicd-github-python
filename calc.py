@@ -26,14 +26,17 @@ def conv(value):
 
 def add2(*args):
     """
-    Add an unlimited number of numeric arguments.
+    Add an unlimited number of numeric arguments. If any argument is a string,
+    convert all arguments to strings and concatenate them.
+
     Args:
-        *args: Numeric arguments to add together.
+        *args: Numeric arguments to add together or concatenate.
+
     Returns:
-        float: The sum of the numeric arguments.
+        str or float: Concatenated string if any argument is a string,
+                      otherwise the sum of the numeric arguments.
     """
-    total = 0
-    for arg in args:
-        if isinstance(arg, (int, float)):
-            total += arg
-    return total
+    if any(isinstance(arg, str) for arg in args):
+        return ''.join(map(str, args))
+    else:
+        return sum(arg for arg in args if isinstance(arg, (int, float)))

@@ -1,6 +1,7 @@
 import unittest
 import calc
 
+
 class TestCalc(unittest.TestCase):
     """
     TestCalc class inherits from unittest.TestCase for creating unit tests for the calc library.
@@ -19,10 +20,17 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(calc.add2(5), 5)
 
     def test_add_many_args(self):
+        """
+        Test that calling add with multiple arguments returns the correct sum.
+        """
         self.assertEqual(calc.add2(2, 3, 4), 9)
 
     def test_add_string(self):
-        self.assertEqual(calc.add2(2, 3, "test"), 5)
+        """
+        Test that calling add with a mix of numbers and a string returns the concatenated result.
+        """
+        self.assertEqual(calc.add2(2, 3, "test"), '23test')
+
 
 if __name__ == '__main__':
     """
