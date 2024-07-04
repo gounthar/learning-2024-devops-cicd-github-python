@@ -8,17 +8,7 @@ import calc
 
 argnumbers = len(sys.argv) - 1
 
-if argnumbers == 2 :
-    '''
-    If the number of arguments is 2, the program will add the two values together.
-    The result is then printed to the console.
-    '''
-    print("")
-    print("The result is " + str(calc.add2(str(sys.argv[1]), str(sys.argv[2]))))
-    print("")
-    sys.exit(0)
-
-if argnumbers != 2 :
+if argnumbers < 2 :
     '''
     If the number of arguments is not 2, the program will print an error message
     to the console and provide the user with the correct usage of the program.
@@ -31,3 +21,10 @@ if argnumbers != 2 :
     print("       If unbundled, usage is 'python add2vals.py X Y'.")
     print("")
     sys.exit(1)
+else :
+
+    print("")
+    # Appelle la fonction 'add2' avec les arguments fournis et affiche le résultat
+    print("The result is " + str(calc.add2(*list(map(str, sys.argv[1:])))))
+    print("")
+    sys.exit(0)
