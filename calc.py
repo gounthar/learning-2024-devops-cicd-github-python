@@ -1,9 +1,21 @@
-# ./calc.py
+'''
+The 'calc' library contains the 'add2' function that takes 2 values and adds
+them together. If either value is a string (or both of them are) 'add2' ensures
+they are both strings, thereby resulting in a concatenated result.
+NOTE: If a value submitted to the 'add2' function is a float, it must be done so
+in quotes (i.e. as a string).
+'''
 
 def conv(value):
-    """
-    Convert the value to an integer, float, or string.
-    """
+    '''
+    If 'value' is not an integer, convert it to a float and failing that, a string.
+
+    Parameters:
+    value (int, float, str): The value to be converted.
+
+    Returns:
+    int, float, str: The converted value.
+    '''
     try:
         return int(value)
     except ValueError:
@@ -14,35 +26,14 @@ def conv(value):
 
 def add2(*args):
     """
-    Add or concatenate multiple arguments.
+    Add an unlimited number of numeric arguments.
+    Args:
+        *args: Numeric arguments to add together.
+    Returns:
+        float: The sum of the numeric arguments.
     """
-    argsconv = [conv(arg) for arg in args]
-    print("Converted Arguments:", argsconv)  # Debug line
-
-    # Check if there are any string arguments
-    string_present = any(isinstance(arg, str) for arg in argsconv)
-
-    if string_present:
-        # Concatenate all as strings
-        result = ''.join(map(str, argsconv))
-        print("Concatenated Result:", result)  # Debug line
-        return result
-    else:
-        # Sum all, treating integers as floats if any float is present
-        result = sum(float(arg) if isinstance(arg, (int, float)) else 0 for arg in argsconv)
-        print("Float Sum Result:", result)  # Debug line
-        return result
-
-def addAll(args):
-    """
-    Add or concatenate all arguments in a list.
-    """
-    argsconv = [conv(arg) for arg in args]
-    print("Converted Arguments:", argsconv)  # Debug line
-
-    if any(isinstance(arg, str) for arg in argsconv):
-        return ''.join(map(str, argsconv))
-    elif any(isinstance(arg, float) for arg in argsconv):
-        return sum(float(arg) if isinstance(arg, (int, float)) else 0 for arg in argsconv)
-    else:
-        return sum(argsconv)
+    total = 0
+    for arg in args:
+        if isinstance(arg, (int, float)):
+            total += arg
+    return total
