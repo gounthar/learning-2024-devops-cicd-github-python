@@ -1,5 +1,6 @@
 import unittest
 import calc
+from calc import add2
 
 class TestCalc(unittest.TestCase):
     """
@@ -12,13 +13,14 @@ class TestCalc(unittest.TestCase):
     test_add_string_and_integer: Test the addition of a string and an integer returns them as one concatenated string.
     test_add_string_and_number: Test the addition of a string and a float returns them as one concatenated string.
     """
-
+    def test_add2_no_args(self):
+        self.assertEqual(add2(), 0)
+        
     def test_add_integers(self):
         """
         Test that the addition of two integers returns the correct total.
         """
-        result = calc.add2(1, 2)
-        self.assertEqual(result, 3)
+        self.assertEqual(add2(1, 2), 3)
 
     def test_add_floats(self):
         """
@@ -32,24 +34,26 @@ class TestCalc(unittest.TestCase):
         Test the addition of two strings returns the two strings as one
         concatenated string.
         """
-        result = calc.add2('abc', 'def')
-        self.assertEqual(result, 'abcdef')
+        self.assertEqual(add2('hello', 'world'), 'helloworld')
 
-    def test_add_string_and_integer(self):
+
+    def test_add2_multiple_args(self):
         """
         Test the addition of a string and an integer returns them as one
         concatenated string (in which the integer is converted to a string).
         """
-        result = calc.add2('abc', 3)
-        self.assertEqual(result, 'abc3')
+        self.assertEqual(add2(1, 2, 3), 6)
+        self.assertEqual(add2('a', 'b', 'c'), 'abc')
+        self.assertEqual(add2(1, 'a', 2, 'b'), '1a2b')
 
-    def test_add_string_and_number(self):
+    def test_add2_single_arg(self):
         """
         Test the addition of a string and a float returns them as one
         concatenated string (in which the float is converted to a string).
         """
-        result = calc.add2('abc', '5.5')
-        self.assertEqual(result, 'abc5.5')
+        self.assertEqual(add2(5), 5)
+        self.assertEqual(add2('test'), 'test')
+
 
 if __name__ == '__main__':
     '''
