@@ -1,7 +1,8 @@
 '''
-The 'calc' library contains the 'add2' function that takes 2 values and adds
-them together. If either value is a string (or both of them are) 'add2' ensures
-they are both strings, thereby resulting in a concatenated result.
+The 'calc' library contains the 'add' function that takes unlimited values and adds
+them together. If either value is a string (or all of them are) 'add' ensures
+they are all strings, thereby resulting in a concatenated result.
+NOTE: If a value submitted to the 'add' function is a float, it must be done so
 NOTE: If a value submitted to the 'add2' function is a float, it must be done so
 in quotes (i.e. as a string).
 '''
@@ -24,24 +25,23 @@ def conv(value):
         except ValueError:
             return str(value)
 
-def add2(arg1, arg2):
+def add(*args):
     '''
-    The 'add2' function itself. It takes two arguments, converts them to their appropriate types
-    using the 'conv' function, and adds them together. If either argument is a string, it ensures
-    both are strings before concatenating them.
+    The 'add' function itself. It takes unlimited arguments, converts them to their appropriate types
+    using the 'conv' function, and sums them up. If either argument is a string, it ensures
+    all of them are strings before concatenating them.
 
     Parameters:
-    arg1 (int, float, str): The first value to be added.
-    arg2 (int, float, str): The second value to be added.
+    *args (int, float, str): An array of values that need to be summed.
 
     Returns:
     int, float, str: The result of the addition or concatenation.
     '''
-    # Convert 'arg1' and 'arg2' to their appropriate types
-    arg1conv = conv(arg1)
-    arg2conv = conv(arg2)
-    # If either 'arg1' or 'arg2' is a string, ensure they're both strings.
-    if isinstance(arg1conv, str) or isinstance(arg2conv, str):
-        arg1conv = str(arg1conv)
-        arg2conv = str(arg2conv)
-    return arg1conv + arg2conv
+    # Convert args to their appropriate types
+    argsconv = list(map(lambda val: conv(val), args))
+    # If either args is a string, ensure they're both strings.
+    if len(list(filter(lambda val: isinstance(val, str), argsconv))):
+        argsconv = "".join(map(lambda val: str(val), argsconv))
+    else:
+        argsconv = sum(argsconv)
+    return argsconv
