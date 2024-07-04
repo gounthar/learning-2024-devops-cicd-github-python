@@ -25,18 +25,16 @@ def conv(value):
             return str(value)
 
 def add2(*args):
-    '''
-    The 'add2' function itself. It takes two arguments, converts them to their appropriate types
-    using the 'conv' function, and adds them together. If either argument is a string, it ensures
-    both are strings before concatenating them.
+    """
+    Additionne plusieurs valeurs ensemble. Si une valeur est une chaîne de caractères,
+    toutes les valeurs sont traitées comme des chaînes de caractères.
 
-    Parameters:
-    arg1 (int, float, str): The first value to be added.
-    arg2 (int, float, str): The second value to be added.
+    Args:
+        *args: Un nombre variable d'arguments qui peuvent être soit des entiers, soit des chaînes de caractères.
 
     Returns:
-    int, float, str: The result of the addition or concatenation.
-    '''
+        La somme des valeurs si ce sont toutes des entiers, ou une chaîne de caractères concaténée si un argument est une chaîne de caractères.
+    """
     if any(isinstance(arg, str) for arg in args):
         return ''.join(map(str, args))
     return sum(args)
