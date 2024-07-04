@@ -41,3 +41,6 @@ Bonne chance !
 * Simplifier au maximum pour la branch main.
 * Demander aux étudiants une PR pour gitlab, puis plus tard une PR pour Jenkinsfile pendant le cours.
 * Étudier ensemble les différents checks lancés par GitHub, Gitlab et Jenkins pour chaque PR.
+* 
+
+Lien repo KUREK Thomas : https://github.com/Thomask25/learning-2024-devops-cicd-github-python
