@@ -7,8 +7,26 @@ before_script:
 
 stages:
   - build
+  - test
+  - deliver
 
 build:
   stage: build
   script:
     - python -m py_compile add2vals.py calc.py
+
+test:
+  stage: test
+  script:
+    - pytest --junit-xml test-reports/results.xml test_calc.py
+  artifacts:
+    reports:
+      junit: test-reports/results.xml
+
+deliver:
+  stage: deliver
+  script:
+    - pyinstaller --onefile add2vals.py
+  artifacts:
+    paths:
+      - dist/add2vals
