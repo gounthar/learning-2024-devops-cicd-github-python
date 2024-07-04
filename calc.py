@@ -25,13 +25,13 @@ def conv(value):
             return str(value)
 
 def addAll(*args):
-    # tenter de convertir tous les éléments de la liste en nombres
+    # tenter de convertir tous les éléments de la liste en nombres et les concaténer
     argsconv = list(map(lambda val: conv(val), args))
 
-    # si l'un des éléments est toujours une string, convertir tous les éléments en string et retour la concaténation
+    # si l'un des éléments est toujours une string, convertir tous les éléments en string
     if len(list(filter(lambda val: isinstance(val, str), argsconv))):
         argsconv = "".join(map(lambda val: str(val), argsconv))
     else:
-        # sinon renvoyer la somme des éléments
+        # sinon additionner les éléments
         argsconv = sum(argsconv)
     return argsconv
