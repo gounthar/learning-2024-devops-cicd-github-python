@@ -5,7 +5,7 @@ import calc
 class TestCalc(unittest.TestCase):
     """
     TestCalc class inherits from unittest.TestCase for creating unit tests for the calc library.
-@@ -51,9 +52,25 @@ def test_add_string_and_number(self):
+
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
 
