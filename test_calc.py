@@ -50,6 +50,20 @@ class TestCalc(unittest.TestCase):
         """
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
+    
+    def test_add_multiple_integers(self):
+        self.assertEqual(add2(1, 2, 3), 6)
+
+    def test_add_strings(self):
+        self.assertEqual(add2('Hello', ' ', 'World'), 'Hello World')
+
+    def test_add_mixed(self):
+        self.assertEqual(add2(1, ' and ', 2), '1 and 2')
+
+    def test_no_arguments(self):
+        self.assertEqual(add2(), 0)
+    
+    
 
 if __name__ == '__main__':
     '''
