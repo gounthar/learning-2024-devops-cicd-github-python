@@ -42,7 +42,5 @@ def add(args: list):
     somme = 0
     for arg in args:
         if isinstance(arg, (int, float)):
-            somme += conv(arg)
-        elif isinstance(arg, str):
-            somme += conv(arg)
+            somme += arg
     return somme
