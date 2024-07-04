@@ -37,11 +37,18 @@ def add2(arg1, arg2):
     Returns:
     int, float, str: The result of the addition or concatenation.
     '''
-    # Convert 'arg1' and 'arg2' to their appropriate types
-    arg1conv = conv(arg1)
-    arg2conv = conv(arg2)
-    # If either 'arg1' or 'arg2' is a string, ensure they're both strings.
-    if isinstance(arg1conv, str) or isinstance(arg2conv, str):
-        arg1conv = str(arg1conv)
-        arg2conv = str(arg2conv)
-    return arg1conv + arg2conv
+    if not args:
+        return 0  # Return 0 if no arguments are provided
+
+    # Convertit les arguments dans la bon type 
+    converted_args = [conv(arg) for arg in args]
+
+    # regarde si tous les arguments sont bien des String 
+    if any(isinstance(arg, str) for arg in converted_args):
+        converted_args = [str(arg) for arg in converted_args]
+
+    result = converted_args[0]
+    for arg in converted_args[1:]:
+        result += arg
+
+    return result
