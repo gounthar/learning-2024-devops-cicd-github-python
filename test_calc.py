@@ -1,5 +1,5 @@
 import unittest
-import calc
+import calc import add2
 
 class TestCalc(unittest.TestCase):
     """
@@ -50,6 +50,19 @@ class TestCalc(unittest.TestCase):
         """
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
+    
+    def test_add2_no_args(self):
+        self.assertEqual(add2(), 0)
+    
+    def test_add2_single_arg(self):
+        self.assertEqual(add2(5), 5)
+        self.assertEqual(add2('5'), '5')
+    
+    def test_add2_multiple_args(self):
+        self.assertEqual(add2(1, 2, 3), 6)
+        self.assertEqual(add2('a', 'b', 'c'), 'abc')
+        self.assertEqual(add2(1, '2', 3), '123')
+        self.assertEqual(add2('1', 2, '3'), '123')
 
 if __name__ == '__main__':
     '''
