@@ -27,8 +27,20 @@ def conv(value):
 
 
 def add2(*args):
-    result = 0
+    """
+    Add multiple arguments together. If any argument is a string, all arguments are concatenated as strings.
+    
+    *args: A variable number of arguments which can be integers, floats, or strings.
+    
+    Returns:
+    int, float, or str: The sum of the arguments if all are numeric, or a concatenated string if any argument is a string.
+    """
+
+    total = 0
     for arg in args:
-        if isinstance(arg, (int, float)):
-            result += arg
-    return result
+        if isinstance(total, (int, float)) and isinstance(arg, (int, float)):
+            total += arg
+        else:
+            total = str(total) + str(arg)
+
+    return total
