@@ -1,14 +1,6 @@
-'''
-The 'calc' library contains the 'add2' function that takes 2 values and adds
-them together. If either value is a string (or both of them are) 'add2' ensures
-they are both strings, thereby resulting in a concatenated result.
-NOTE: If a value submitted to the 'add2' function is a float, it must be done so
-in quotes (i.e. as a string).
-'''
-
 def conv(value):
     '''
-    If 'value' is not an integer, convert it to a float and failing that, a string.
+    Convert 'value' to the appropriate type (int, float, str) if necessary.
 
     Parameters:
     value (int, float, str): The value to be converted.
@@ -25,15 +17,23 @@ def conv(value):
             return str(value)
 
 def add2(*args):
-    if not args:
-        return None
+    """
+    Add multiple values together. If any value is a string, concatenate them.
 
-    result = conv(args[0])
+    Parameters:
+    *args (int, float, str): Values to be added or concatenated.
+
+    Returns:
+    int, float, str: The result of the addition or concatenation.
+    """
+    if not args:
+        return 0
+
+    result = args[0]
     for arg in args[1:]:
-        argconv = conv(arg)
-        if isinstance(result, str) or isinstance(argconv, str):
-            result = str(result) + str(argconv)
+        if isinstance(result, (int, float)) and isinstance(arg, (int, float)):
+            result += arg
         else:
-            result += argconv
+            result = str(result) + str(arg)
 
     return result
