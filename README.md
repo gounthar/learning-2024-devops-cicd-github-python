@@ -35,9 +35,3 @@ Une fois que vous avez terminé ces tâches, créez une nouvelle branche, commit
 
 Bonne chance !
 
-## Préparation au CI avec d'autres plateformes
-
-* Créer une branche avec des gitlab-ci et Jenkinsfile terminés avec toutes les étapes de tests et de déploiement.
-* Simplifier au maximum pour la branch main.
-* Demander aux étudiants une PR pour gitlab, puis plus tard une PR pour Jenkinsfile pendant le cours.
-* Étudier ensemble les différents checks lancés par GitHub, Gitlab et Jenkins pour chaque PR.
