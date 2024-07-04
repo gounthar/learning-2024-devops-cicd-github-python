@@ -53,20 +53,39 @@ class TestCalc(unittest.TestCase):
 
     
     def test_add_one_element(self):
+        """
+        Test the addition of a single integer, return the correct value.
+        """
         result = calc.add2('abc')
         self.assertEqual(result, 'abc')
 
     def test_add_six_elements(self):
+        """
+        Test the addition of several integers, return the correct value.
+        """
         result = calc.add2(1,2,3,4,5,6)
         self.assertEqual(result, 21)
 
     def test_add_six_elements_with_strings(self):
+        """
+        Test the addition of several integers and strings, return the concatenated value.
+        """
         result = calc.add2('a',2,3,'z',5,6)
         self.assertEqual(result, 'a23z56')
 
     def test_add_six_elements_with_strings_as_int(self):
+        """
+        Test the addition of several integers and strings with values typable as integers, return the correct value.
+        """
         result = calc.add2('1',2,3,'4',5,6)
         self.assertEqual(result, 21)
+
+    def test_add_zero_element(self):
+        """
+        Test the addition of no values, return the correct value.
+        """
+        result = calc.add2()
+        self.assertEqual(result, 0)
 
 if __name__ == '__main__':
     '''
