@@ -1,6 +1,7 @@
 import unittest
 import calc
 
+
 class TestCalc(unittest.TestCase):
     """
     TestCalc class inherits from unittest.TestCase for creating unit tests for the calc library.
