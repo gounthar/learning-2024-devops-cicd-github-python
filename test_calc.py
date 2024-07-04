@@ -82,9 +82,9 @@ class TestCalc(unittest.TestCase):
         result = calc.add2(1, '2', 3.0, '4')
         self.assertEqual(result, '123.04')
 
-if __name__ == '__main__':
-    '''
-    Le point d'entrée pour exécuter les tests depuis la ligne de commande. La fonction unittest.main()
-    utilise une interface en ligne de commande et exécute toutes les méthodes de test dont le nom commence par 'test'.
-    '''
+    if __name__ == '__main__':
+        '''
+        Le point d'entrée pour exécuter les tests depuis la ligne de commande. La fonction unittest.main()
+        utilise une interface en ligne de commande et exécute toutes les méthodes de test dont le nom commence par 'test'.
+        '''
     unittest.main()
