@@ -48,8 +48,8 @@ class TestCalc(unittest.TestCase):
         Test the addition of a string and a float returns them as one
         concatenated string (in which the float is converted to a string).
         """
-        result = calc.add2('abc', '5.5')
-        self.assertEqual(result, 'abc5.5')
+        result = calc.add2('abd', '5.5')
+        self.assertEqual(result, 'abd5.5')
 
 if __name__ == '__main__':
     '''
