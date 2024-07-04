@@ -24,6 +24,7 @@ def conv(value):
         except ValueError:
             return str(value)
 
+
 def add2(*args):
     """
     Add an unlimited number of numeric arguments. If any argument is a string,
@@ -40,3 +41,4 @@ def add2(*args):
         return ''.join(map(str, args))
     else:
         return sum(arg for arg in args if isinstance(arg, (int, float)))
+
