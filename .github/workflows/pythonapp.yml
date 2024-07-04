@@ -21,7 +21,7 @@ jobs:
         pip install flake8 pytest pyinstaller
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Compile Python files
-      run: python -m py_compile add2vals.py calc.py
+      run: python -m py_compile addvals.py calc.py
     - name: Lint with flake8
       run: |
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
@@ -29,7 +29,7 @@ jobs:
     - name: Test with pytest
       run: pytest --junit-xml test-reports/results.xml
     - name: Package with PyInstaller
-      run: pyinstaller --onefile add2vals.py
+      run: pyinstaller --onefile addvals.py
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
