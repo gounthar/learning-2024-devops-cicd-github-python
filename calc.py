@@ -1,10 +1,4 @@
-'''
-The 'calc' library contains the 'add2' function that takes 2 values and adds
-them together. If either value is a string (or both of them are) 'add2' ensures
-they are both strings, thereby resulting in a concatenated result.
-NOTE: If a value submitted to the 'add2' function is a float, it must be done so
-in quotes (i.e. as a string).
-'''
+# ./calc.py
 
 def conv(value):
     '''
@@ -25,18 +19,26 @@ def conv(value):
             return str(value)
 
 
-
 def add2(*args):
-    """
-    Adds multiple values together. If any value is a string, converts all to strings and concatenates them.
-    
-    Args:
-        *args: A variable length argument list of values to add or concatenate.
-    
-    Returns:
-        The sum of all numeric values, or a concatenated string if any value is a string.
-    """
-    if any(isinstance(arg, str) for arg in args):
-        return ''.join(map(str, args))
-    return sum(args)
+    '''
+    The 'add2' function itself. It takes multiple arguments, converts them to their appropriate types
+    using the 'conv' function, and adds them together. If any argument is a string, it ensures
+    all are strings before concatenating them.
 
+    Parameters:
+    *args (int, float, str): Variable number of values to be added or concatenated.
+
+    Returns:
+    int, float, str: The result of the addition or concatenation.
+    '''
+    # Convert each argument in '*args' to its appropriate type
+    argsconv = [conv(arg) for arg in args]
+
+    # Determine if any argument is a string
+    string_present = any(isinstance(arg, str) for arg in argsconv)
+
+    # If any argument is a string, ensure all are strings
+    if string_present:
+        return ''.join(map(str, argsconv))
+    else:
+        return sum(argsconv)
