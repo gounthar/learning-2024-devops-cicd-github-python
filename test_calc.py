@@ -52,7 +52,7 @@ class TestCalc(unittest.TestCase):
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
 
-    def test_add_string_and_number(self):
+    def test_add_multiple_strings_and_number(self):
         """
         Test the addition of multiples strings and floats returns them as one
         concatenated string (in which the float is converted to a string).
