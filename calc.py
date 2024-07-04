@@ -1,12 +1,12 @@
 def conv(value):
     '''
-    If 'value' is not an integer, convert it to a float and failing that, a string.
+    Si 'value' n'est pas un entier, le convertir en float et, en cas d'échec, en chaîne de caractères.
 
-    Parameters:
-    value (int, float, str): The value to be converted.
+    Paramètres:
+    value (int, float, str): La valeur à convertir.
 
-    Returns:
-    int, float, str: The converted value.
+    Renvoie:
+    int, float, str: La valeur convertie.
     '''
     try:
         return int(value)
@@ -18,33 +18,38 @@ def conv(value):
 
 def add2(*args):
     '''
-    The 'add2' function itself. It takes a variable number of arguments, converts them to their
-    appropriate types using the 'conv' function, and adds them together. If any argument is a 
-    string, it ensures all are strings before concatenating them.
+    La fonction 'add2' prend un nombre variable d'arguments, les convertit à leur type
+    approprié en utilisant la fonction 'conv', et les additionne. Si un argument est une chaîne de caractères,
+    elle s'assure que tous sont des chaînes avant de les concaténer.
 
-    Parameters:
-    *args (int, float, str): The values to be added.
+    Paramètres:
+    *args (int, float, str): Les valeurs à additionner.
 
-    Returns:
-    int, float, str: The result of the addition or concatenation.
+    Renvoie:
+    int, float, str: Le résultat de l'addition ou de la concaténation. Si aucun argument n'est fourni,
+    une chaîne vide est renvoyée.
     '''
-    # Initialize a flag to check if any argument is a string
+    # Initialiser un indicateur pour vérifier si un argument est une chaîne de caractères
     has_string = False
-    # List to store converted arguments
+    # Liste pour stocker les arguments convertis
     converted_args = []
 
-    # Convert all arguments and check if any is a string
+    # Convertir tous les arguments et vérifier si l'un d'eux est une chaîne de caractères
     for arg in args:
         converted = conv(arg)
         if isinstance(converted, str):
             has_string = True
         converted_args.append(converted)
     
-    # If any argument is a string, convert all to strings
+    # Si un argument est une chaîne de caractères, les convertir tous en chaînes
     if has_string:
         converted_args = [str(arg) for arg in converted_args]
 
-    # Calculate the result by summing or concatenating the arguments
+    # Si aucun argument n'est fourni, renvoyer une chaîne vide
+    if not converted_args:
+        return ''
+
+    # Calculer le résultat en additionnant ou en concaténant les arguments
     result = converted_args[0]
     for arg in converted_args[1:]:
         result += arg
