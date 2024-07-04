@@ -62,7 +62,7 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(result, 6)
     
         # Teste l'addition d'arguments mixtes avec des flottants et un entier
-        result = calc.add2(1.5, 2.5, 3)
+        result = calc.add2('1.5', '2.5', 3)
         # Vérifie que le résultat est la somme correcte des flottants et de l'entier
         self.assertEqual(result, 7.0)
     
