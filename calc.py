@@ -43,7 +43,7 @@ def add2(*args):
     
     # Si un argument est une chaîne de caractères, les convertir tous en chaînes
         if has_string:
-        converted_args = [str(arg) for arg in converted_args]
+            converted_args = [str(arg) for arg in converted_args]
 
     # Si aucun argument n'est fourni, renvoyer une chaîne vide
         if not converted_args:
