@@ -11,6 +11,7 @@ class TestCalc(unittest.TestCase):
     test_add_strings: Test the addition of two strings returns the two strings as one concatenated string.
     test_add_string_and_integer: Test the addition of a string and an integer returns them as one concatenated string.
     test_add_string_and_number: Test the addition of a string and a float returns them as one concatenated string.
+    Test that the addition of multiple arguments returns the correct total or concatenated string.
     """
 
     def test_add_integers(self):

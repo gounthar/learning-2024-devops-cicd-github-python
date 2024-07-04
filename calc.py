@@ -24,7 +24,7 @@ def conv(value):
         except ValueError:
             return str(value)
 
-def add2(arg1, arg2):
+def add2(*args):
     '''
     The 'add2' function itself. It takes two arguments, converts them to their appropriate types
     using the 'conv' function, and adds them together. If either argument is a string, it ensures
