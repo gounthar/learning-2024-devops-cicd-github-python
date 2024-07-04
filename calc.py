@@ -23,25 +23,18 @@ def conv(value):
             return float(value)
         except ValueError:
             return str(value)
-
-def add2(arg1, arg2):
-    '''
-    The 'add2' function itself. It takes two arguments, converts them to their appropriate types
-    using the 'conv' function, and adds them together. If either argument is a string, it ensures
-    both are strings before concatenating them.
-
-    Parameters:
-    arg1 (int, float, str): The first value to be added.
-    arg2 (int, float, str): The second value to be added.
-
+        
+def add2(*args):
+    """
+    Ajoute un nombre illimité d'arguments numériques.
+    Si un argument est une chaîne de caractères, elle est ignorée.
+    Args:
+        *args: Arguments numériques à additionner.
     Returns:
-    int, float, str: The result of the addition or concatenation.
-    '''
-    # Convert 'arg1' and 'arg2' to their appropriate types
-    arg1conv = conv(arg1)
-    arg2conv = conv(arg2)
-    # If either 'arg1' or 'arg2' is a string, ensure they're both strings.
-    if isinstance(arg1conv, str) or isinstance(arg2conv, str):
-        arg1conv = str(arg1conv)
-        arg2conv = str(arg2conv)
-    return arg1conv + arg2conv
+        float: La somme des arguments numériques.
+    """
+    total = 0
+    for arg in args:
+        if isinstance(arg, (int, float)):
+            total += arg
+    return total
