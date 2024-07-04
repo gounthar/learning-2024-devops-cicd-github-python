@@ -33,6 +33,6 @@ def add2(*args):
     for arg in args:
         if isinstance(arg, (int, float)):
             somme += arg
-        elif isinstance(arg, (string)):
+        elif isinstance(arg, str):
             somme += conv(arg)
     return somme
