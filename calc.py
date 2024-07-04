@@ -36,8 +36,7 @@ def add2(*args):
     Returns:
         La somme des valeurs si ce sont toutes des entiers ou des flottants, ou une chaîne de caractères concaténée si un argument est une chaîne de caractères.
     """
-    try:
-        return sum(float(arg) for arg in args)
-    except ValueError:
+    if any(isinstance(arg, str) for arg in args):
         return ''.join(map(str, args))
+    return sum(args)
 

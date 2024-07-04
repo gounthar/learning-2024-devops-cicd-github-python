@@ -1,6 +1,6 @@
 import unittest
-import calc 
 from calc import add2
+import calc
 
 class TestCalc(unittest.TestCase):
     """
