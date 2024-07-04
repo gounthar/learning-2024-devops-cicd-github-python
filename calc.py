@@ -29,7 +29,14 @@ def conv(value):
 def add2(*args):
     """
     Adds multiple values together. If any value is a string, converts all to strings and concatenates them.
+    
+    Args:
+        *args: A variable length argument list of values to add or concatenate.
+    
+    Returns:
+        The sum of all numeric values, or a concatenated string if any value is a string.
     """
     if any(isinstance(arg, str) for arg in args):
         return ''.join(map(str, args))
     return sum(args)
+
