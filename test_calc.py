@@ -51,6 +51,27 @@ class TestCalc(unittest.TestCase):
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
 
+    def test_add_integers(self):
+        """
+        Test the addition of two integers.
+        """
+        result = calc.add2(1, 2, 5)
+        self.assertEqual(result, 8)
+
+    def test_add_floats_with_quotes(self):
+        """
+        Test the addition of two floats when one is entered with quotes.
+        """
+        result = calc.add2('10.5', '2')
+        self.assertEqual(result, 12.5)
+
+    def test_add_no_arguments(self):
+        """
+        Test the addition of no arguments.
+        """
+        result = calc.add2()
+        self.assertEqual(result, 0)
+
 if __name__ == '__main__':
     '''
     The entry point for running the tests from the command line. The unittest.main() function
