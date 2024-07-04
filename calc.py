@@ -1,11 +1,3 @@
-'''
-The 'calc' library contains the 'add2' function that takes 2 values and adds
-them together. If either value is a string (or both of them are) 'add2' ensures
-they are both strings, thereby resulting in a concatenated result.
-NOTE: If a value submitted to the 'add2' function is a float, it must be done so
-in quotes (i.e. as a string).
-'''
-
 def conv(value):
     '''
     If 'value' is not an integer, convert it to a float and failing that, a string.
@@ -24,24 +16,29 @@ def conv(value):
         except ValueError:
             return str(value)
 
-def add2(arg1, arg2):
+def add2(*args):
     '''
-    The 'add2' function itself. It takes two arguments, converts them to their appropriate types
-    using the 'conv' function, and adds them together. If either argument is a string, it ensures
-    both are strings before concatenating them.
+    The 'add2' function takes any number of arguments, converts them to their appropriate types
+    using the 'conv' function, and adds them together. If any argument is a string, it ensures
+    all arguments are converted to strings before concatenating them.
 
     Parameters:
-    arg1 (int, float, str): The first value to be added.
-    arg2 (int, float, str): The second value to be added.
+    *args (int, float, str): Any number of values to be added together.
 
     Returns:
     int, float, str: The result of the addition or concatenation.
     '''
-    # Convert 'arg1' and 'arg2' to their appropriate types
-    arg1conv = conv(arg1)
-    arg2conv = conv(arg2)
-    # If either 'arg1' or 'arg2' is a string, ensure they're both strings.
-    if isinstance(arg1conv, str) or isinstance(arg2conv, str):
-        arg1conv = str(arg1conv)
-        arg2conv = str(arg2conv)
-    return arg1conv + arg2conv
+    # Initialize total to accumulate the sum
+    total = conv(0)  # Start with 0 of appropriate type
+
+    # Iterate over all arguments
+    for arg in args:
+        arg_conv = conv(arg)  # Convert each argument to its appropriate type
+
+        # If any argument is a string, convert all to strings for concatenation
+        if isinstance(total, str) or isinstance(arg_conv, str):
+            total = str(total) + str(arg_conv)
+        else:
+            total += arg_conv  # Add numeric values
+
+    return total
