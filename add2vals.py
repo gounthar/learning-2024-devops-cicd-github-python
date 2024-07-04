@@ -10,7 +10,8 @@ argnumbers = len(sys.argv) - 1
 
 if argnumbers == 2:
     '''
-    If the number of arguments is 2, the program will add the two values together.
+    If the number of arguments is 2,
+    ther.
     The result is then printed to the console.
     '''
     print("")
@@ -20,8 +21,8 @@ if argnumbers == 2:
 
 if argnumbers != 2:
     '''
-    If the number of arguments is not 2, the program will print an error message
-    to the console and provide the user with the correct usage of the program.
+    If the number of arguments is not 2, 
+    .
     '''
     print("")
     print(f"You entered {argnumbers} value/s.")
