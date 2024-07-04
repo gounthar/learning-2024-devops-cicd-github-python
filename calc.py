@@ -47,7 +47,7 @@ def add2(*args):
 
     # Si aucun argument n'est fourni, renvoyer une chaîne vide
         if not converted_args:
-        return ''
+            return ''
 
     # Calculer le résultat en additionnant ou en concaténant les arguments
     result = converted_args[0]
