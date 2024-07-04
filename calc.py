@@ -11,10 +11,10 @@ def conv(value):
     try:
         return int(value)
     except ValueError:
-        try:
-            return float(value)
-        except ValueError:
-            return str(value)
+     try:
+         return float(value)
+    except ValueError:
+        return str(value)
 
 def add2(*args):
     '''
@@ -42,11 +42,11 @@ def add2(*args):
         converted_args.append(converted)
     
     # Si un argument est une chaîne de caractères, les convertir tous en chaînes
-    if has_string:
+        if has_string:
         converted_args = [str(arg) for arg in converted_args]
 
     # Si aucun argument n'est fourni, renvoyer une chaîne vide
-    if not converted_args:
+        if not converted_args:
         return ''
 
     # Calculer le résultat en additionnant ou en concaténant les arguments
