@@ -11,6 +11,9 @@ class TestCalc(unittest.TestCase):
     test_add_strings: Test the addition of two strings returns the two strings as one concatenated string.
     test_add_string_and_integer: Test the addition of a string and an integer returns them as one concatenated string.
     test_add_string_and_number: Test the addition of a string and a float returns them as one concatenated string.
+    test_add_three_integers: Test the addition of three integers.
+    test_add_floats_with_quotes: Test the addition of two floats when one is entered with quotes.
+    test_add_no_arguments: Test the addition of no arguments.
     """
 
     def test_add_integers(self):
@@ -51,7 +54,7 @@ class TestCalc(unittest.TestCase):
         result = calc.add2('abc', '5.5')
         self.assertEqual(result, 'abc5.5')
 
-    def test_add_integers(self):
+    def test_add_three_integers(self):
         """
         Test the addition of two integers.
         """
