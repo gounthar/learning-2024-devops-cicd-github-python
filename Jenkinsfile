@@ -1,32 +1,34 @@
-image: python:3.8
-
-before_script:
-  - python -m pip install --upgrade pip
-  - pip install flake8 pytest pyinstaller
-  - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-stages:
-  - build
-  - test
-  - deliver
-
-build:
-  stage: build
-  script:
-    - python -m py_compile add2vals.py calc.py
-
-test:
-  stage: test
-  script:
-    - pytest --junit-xml test-reports/results.xml test_calc.py
-  artifacts:
-    reports:
-      junit: test-reports/results.xml
-
-deliver:
-  stage: deliver
-  script:
-    - pyinstaller --onefile add2vals.py
-  artifacts:
-    paths:
-      - dist/add2vals
+pipeline {
+    agent any
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'python -m py_compile add2vals.py calc.py'
+                stash(name: 'compiled-results', includes: '*.py*')
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'py.test --junit-xml test-reports/results.xml test_calc.py'
+            }
+            post {
+                always {
+                    junit 'test-reports/results.xml'
+                }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh "pyinstaller --onefile add2vals.py"
+            }
+            post {
+                success {
+                    archiveArtifacts 'dist/add2vals'
+                }
+            }
+        }
+    }
+}
