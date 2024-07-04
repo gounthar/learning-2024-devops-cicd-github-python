@@ -1,47 +1,26 @@
-'''
-The 'calc' library contains the 'add2' function that takes 2 values and adds
-them together. If either value is a string (or both of them are) 'add2' ensures
-they are both strings, thereby resulting in a concatenated result.
-NOTE: If a value submitted to the 'add2' function is a float, it must be done so
-in quotes (i.e. as a string).
-'''
-
-def conv(value):
+def add2(*args):
     '''
-    If 'value' is not an integer, convert it to a float and failing that, a string.
+    La fonction 'add2' prend un nombre illimité d'arguments et les ajoute ensemble.
+    Si un des arguments est une chaîne de caractères, tous les arguments sont convertis en chaînes.
 
     Parameters:
-    value (int, float, str): The value to be converted.
+    *args (int, float, str): Les valeurs à ajouter.
 
     Returns:
-    int, float, str: The converted value.
+    int, float, str: Le résultat de l'addition ou de la concaténation.
     '''
-    try:
-        return int(value)
-    except ValueError:
-        try:
-            return float(value)
-        except ValueError:
-            return str(value)
-
-def add2(arg1, arg2):
-    '''
-    The 'add2' function itself. It takes two arguments, converts them to their appropriate types
-    using the 'conv' function, and adds them together. If either argument is a string, it ensures
-    both are strings before concatenating them.
-
-    Parameters:
-    arg1 (int, float, str): The first value to be added.
-    arg2 (int, float, str): The second value to be added.
-
-    Returns:
-    int, float, str: The result of the addition or concatenation.
-    '''
-    # Convert 'arg1' and 'arg2' to their appropriate types
-    arg1conv = conv(arg1)
-    arg2conv = conv(arg2)
-    # If either 'arg1' or 'arg2' is a string, ensure they're both strings.
-    if isinstance(arg1conv, str) or isinstance(arg2conv, str):
-        arg1conv = str(arg1conv)
-        arg2conv = str(arg2conv)
-    return arg1conv + arg2conv
+    # Convertir tous les arguments à leurs types appropriés
+    conv_args = [conv(arg) for arg in args]
+    
+    # Si un des arguments est une chaîne de caractères, les convertir tous en chaînes
+    if any(isinstance(arg, str) for arg in conv_args):
+        conv_args = [str(arg) for arg in conv_args]
+    
+    # Initialiser le résultat
+    result = conv_args[0]
+    
+    # Ajouter tous les arguments ensemble
+    for arg in conv_args[1:]:
+        result += arg
+        
+    return result
