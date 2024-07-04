@@ -1,14 +1,12 @@
 name: Python application
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
@@ -18,20 +16,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest pyinstaller
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Compile Python files
-      run: python -m py_compile add2vals.py calc.py
+        pip install flake8 pytest
     - name: Lint with flake8
       run: |
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 .
     - name: Test with pytest
-      run: pytest --junit-xml test-reports/results.xml
-    - name: Package with PyInstaller
-      run: pyinstaller --onefile add2vals.py
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: compiled-application
-        path: dist/add2vals
+      run: |
+        pytest
