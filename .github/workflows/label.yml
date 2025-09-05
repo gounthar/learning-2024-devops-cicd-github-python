@@ -26,9 +26,9 @@ jobs:
 
     # The steps that the job will run
     steps:
-    # This step uses the actions/labeler@v5 action
-    - uses: actions/labeler@v5
-      # The parameters for the actions/labeler@v5 action
+    # This step uses the actions/labeler@v6 action
+    - uses: actions/labeler@v6
+      # The parameters for the actions/labeler@v6 action
       with:
         # The GitHub token, which is used to authenticate with the GitHub API
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
